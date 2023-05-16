@@ -20,41 +20,46 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
  */
 
+// Add {} for class RollResult
+public class RollResult {
+	int total;
+	int modifier;
+	// Add ; for variable rolls
+	Vector<Integer> rolls;
 
-public class RollResult 
-    int total;
-    int modifier;
-//    Vector<Integer> rolls;
-    private Roll_Result(int total, 
-		       int modifier,
-		       Vector<Integer> rolls){
-	thistotal=total;
+	// Add ) after params of function RollResult
+private RollResult(int total, int modifier, Vector<Integer> rolls) {
+	this.total=total;
 	this.modifier=modifier;
+	// Add "." for "this.rolls"
 	this.rolls=rolls;
     }
-    public RollResult(int bonus) {
-	this.total=bonus;
-	this.modifier=bonus;
-	rolls=new Vector<Integer>();
-    }
-    public void addResult(int res){
-	total+=res
-	rolls.add(res);
-    }
-    public RollResult andThen(RollResult r2) {
-	int total=this.total+r2.total;
-	Vector<Integer> rolls=new Vector<Integer>();
-	rolls.addAll(this.rolls);
-	rolls.addAll(r2.rolls);
-	return new RollResult(total,
-			      this.modifier+r2.modifier,
-			      rolls);
-    }
-    public String toString() {
-	return total +"  <= " +rolls.toString()+ 
-	    (modifier>0?("+"+modifier):
-	     modifier<0?modifier:"");
-    }
 
+	public RollResult(int bonus) {
+		this.total = bonus;
+		this.modifier = bonus;
+		rolls = new Vector<Integer>();
+	}
 
+	// Remove comment for function addResult
+	public void addResult(int res) {
+		total += res;
+		rolls.add(res);
+		// Add } for function addResult
+	}
+
+	public RollResult andThen(RollResult r2) {
+		int total = this.total + r2.total;
+		Vector<Integer> rolls = new Vector<Integer>();
+		rolls.addAll(this.rolls);
+		rolls.addAll(r2.rolls);
+		return new RollResult(total,
+				this.modifier + r2.modifier,
+				rolls);
+	}
+
+	public String toString() {
+		return total + "  <= " + rolls.toString() +
+				(modifier > 0 ? ("+" + modifier) : modifier < 0 ? modifier : "");
+	}
 }
