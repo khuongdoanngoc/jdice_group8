@@ -65,7 +65,7 @@ public class DiceParser {
 	    	}
 	    	try{
 				Integer ans;
-				// Add "." for IntergerparseInt
+				// Add "." for "IntergerparseInt"
 				ans=Integer.parseInt(buff.substring(0,index));
 				buff=buff.delete(0,index);
 				return ans;
@@ -217,7 +217,7 @@ public class DiceParser {
 			bonus = 0;
 		else
 			bonus = num;
-		return new DieRoll(ndice, dsides, bonus);
+		return new DieRoll(ndice,dsides, bonus);
 
 	}
 
